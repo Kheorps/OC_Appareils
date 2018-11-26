@@ -1,0 +1,20 @@
+<h2>Mes appareils</h2>
+<p>Mise à jour : {{ lastUpdate | async | date : 'short' }}</p>
+<ul class="list-group">
+  <app-appareil *ngFor="let appareil of appareils; let i = index"
+                [id]="appareil.id"
+                [appareilName]="appareil.name" 
+                [appareilStatus]="appareil.status"
+                [index]="i"></app-appareil>
+</ul>
+<button class="btn btn-success"
+        (click)="onAllumer()">Tout allumer</button>
+&nbsp;
+<button class="btn btn-danger"
+        (click)="onEteindre()">Tout éteindre</button>
+&nbsp;
+<button class="btn btn-primary"
+        (click)="onSave()">Enregistrer les appareils</button>
+&nbsp;
+<button class="btn btn-primary"
+        (click)="onFetch()">Récupérer les appareils</button>
